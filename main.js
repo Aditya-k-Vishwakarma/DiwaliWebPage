@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let colorIndex = 0;
 
     function changeLanternColor() {
-        colorIndex = (colorIndex + 1) % colors.length;
-        lantern.querySelector('.body').style.background = `radial-gradient(circle at center, ${colors[colorIndex]}, ${colors[(colorIndex + 1) % colors.length]})`;
+        if (lantern && lantern.querySelector('.body')) {
+            colorIndex = (colorIndex + 1) % colors.length;
+            lantern.querySelector('.body').style.background = `radial-gradient(circle at center, ${colors[colorIndex]}, ${colors[(colorIndex + 1) % colors.length]})`;
+        }
     }
 
     // Change lantern color every 2 seconds
